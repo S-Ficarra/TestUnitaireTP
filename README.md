@@ -170,3 +170,29 @@
 ### DELETE /users/:id  
 **Description** : Supprime un utilisateur par ID.  
 **Response** : Message de confirmation.
+
+# ----------------------------
+
+### GET /books  
+**Description** : Récupère tous les livres.  
+**Response** : Liste des objets livres.  
+
+### GET /books/:id  
+**Description** : Récupère un livre par ID.  
+**Response** : Objet livre correspondant à l'ID.  
+
+### POST /books  
+**Description** : Crée un nouveau livre.  
+**Request Body** : `{ title, author}`.  
+**Response** : Objet livre nouvellement créé.  
+
+### PUT /books/:id  
+**Description** : Met à jour un livre par ID.  
+**Request Body** : Champs livre partiels ou complets à mettre à jour.  
+**Response** : Objet livre mis à jour.  
+
+### DELETE /books/:id  
+**Description** : Supprime un livre par ID.  
+**Response** : Message de confirmation.
+
+
