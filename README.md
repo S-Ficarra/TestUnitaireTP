@@ -100,7 +100,7 @@
 **Afin de** pouvoir l'ajouter au système avec les informations nécessaires.  
 
 #### Critères d'acceptation :
-- Une requête valide contient les informations du livre (nom, email).
+- Une requête valide contient les informations du livre (titre, auteur).
 - Le système crée un nouveau livre et le stocke dans la base de données.
 - Si les données saisies sont invalides (par exemple, champs requis manquants), le système renvoie une erreur 400 avec un retour sur la validation.
 - Après la création, le système répond avec les détails du nouveau livre créé.
@@ -115,9 +115,9 @@
 #### Critères d'acceptation :
 - Le système met à jour le livre sur la base de l'ID fourni et du corps de la requête.
 - Une requête valide contient uniquement les champs à mettre à jour (titre, auteur).
-- Si l'ID de le livre n'existe pas, le système renvoie une erreur 404.
+- Si l'ID du livre n'existe pas, le système renvoie une erreur 404.
 - Si les données saisies sont invalides, le système renvoie une erreur 400 avec un retour sur la validation.
-- Les détails mis à jour de le livre sont reflétés dans la base de données.
+- Les détails mis à jour du livre sont reflétés dans la base de données.
 
 <br>
 
@@ -136,16 +136,71 @@
 
 ---
 
+## 1. Vinyl :
 
+### 1.1 Récupérer tous les vinyls (GET /)
+**En tant qu'utilisateur,**  
+**Je veux** voir une liste de tous les vinyls,  
+**Afin de** pouvoir rapidement accéder aux informations sur tout les vinyls dans le système.  
 
+#### Critères d'acceptation :
+- Le système récupère une liste de tous les vinyls depuis la base de données.
+- La réponse inclut les détails essentiels des vinyls (titre et groupe).
+- S'il n'y a pas de vinyls, le système renvoie une liste vide.
 
+<br>
 
+### 1.2 Récupérer un vinyl par ID (GET /:id)
+**En tant qu'utilisateur,**  
+**Je veux** consulter des informations détaillées sur un vinyl spécifique,  
+**Afin de** pouvoir voir son profil complet ou effectuer des actions spécifiques.  
 
+#### Critères d'acceptation :
+- Le système récupère les détails d'un vinyl sur la base de l'ID fourni.
+- La réponse inclut tous les détails pertinents du vinyl (titre, groupe).
+- Si l'ID du vinyl n'existe pas, le système renvoie une erreur 404 avec un message explicatif.
 
+<br>
 
+### 1.3 Créer un vinyl (POST /)
+**En tant qu'administrateur,**  
+**Je veux** créer un nouveau vinyl,  
+**Afin de** pouvoir l'ajouter au système avec les informations nécessaires.  
 
+#### Critères d'acceptation :
+- Une requête valide contient les informations du vinyl (titre, groupe).
+- Le système crée un nouveau vinyl et le stocke dans la base de données.
+- Si les données saisies sont invalides (par exemple, champs requis manquants), le système renvoie une erreur 400 avec un retour sur la validation.
+- Après la création, le système répond avec les détails du nouveau vinyl créé.
 
+<br>
 
+### 1.4 Mettre à jour un vinyl (PUT /:id)
+**En tant qu'administrateur,**  
+**Je veux** mettre à jour les informations d'un vinyl,  
+**Afin de** pouvoir modifier ses données si nécessaire.  
+
+#### Critères d'acceptation :
+- Le système met à jour le vinyl sur la base de l'ID fourni et du corps de la requête.
+- Une requête valide contient uniquement les champs à mettre à jour (titre, groupe).
+- Si l'ID du vinyl n'existe pas, le système renvoie une erreur 404.
+- Si les données saisies sont invalides, le système renvoie une erreur 400 avec un retour sur la validation.
+- Les détails mis à jour du vinyl sont reflétés dans la base de données.
+
+<br>
+
+### 1.5 Supprimer un vinyl (DELETE /:id)
+**En tant qu'administrateur,**  
+**Je veux** supprimer un vinyl du système,  
+**Afin de** pouvoir retirer les vinyls qui ne sont plus nécessaires.  
+
+#### Critères d'acceptation :
+- Le système supprime le vinyl associé à l'ID fourni.
+- Si l'ID du vinyl n'existe pas, le système renvoie une erreur 404.
+- Si la suppression est réussie, le système répond avec un message de confirmation.
+- Le vinyl supprimé n'est plus récupérable dans la base de données.
+
+<br>
 
 # ------- API Documentation -------
 
