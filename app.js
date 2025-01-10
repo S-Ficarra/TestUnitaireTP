@@ -4,7 +4,7 @@ const morgan = require('morgan');
 const fs = require('fs');
 const path = require('path');
 const userRoutes = require('./routes/userRoutes');
-
+const bookRoutes = require('./routes/bookRoutes');
 
 
 const app = express();
@@ -23,8 +23,7 @@ app.use(morgan('combined', { stream: accessLogStream }));
 
 // Routes
 app.use('/users', userRoutes);
-
-
+app.use('/books', bookRoutes);
 
 
 module.exports = app;
