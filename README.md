@@ -250,4 +250,27 @@
 **Description** : Supprime un livre par ID.  
 **Response** : Message de confirmation.
 
+# ----------------------------
+
+### GET /vinyls  
+**Description** : Récupère tous les vinyls.  
+**Response** : Liste des objets vinyls. 
+
+### GET /vinyls/:id  
+**Description** : Récupère un vinyl par ID.  
+**Response** : Objet vinyl correspondant à l'ID.  
+
+### POST /vinyls  
+**Description** : Crée un nouveau vinyl.  
+**Request Body** : `{ title, groupe}`.  
+**Response** : Objet livre nouvellement créé.  
+
+### PUT /vinyls/:id  
+**Description** : Met à jour un vinyl par ID.  
+**Request Body** : Champs vinyl partiels ou complets à mettre à jour.  
+**Response** : Objet vinyl mis à jour.  
+
+### DELETE /vinyls/:id  
+**Description** : Supprime un vinyl par ID.  
+**Response** : Message de confirmation.
 
