@@ -68,9 +68,9 @@
 
 ---
 
-## 1. Book :
+## 2. Book :
 
-### 1.1 Récupérer tous les livres (GET /)
+### 2.1 Récupérer tous les livres (GET /)
 **En tant qu'utilisateur,**  
 **Je veux** voir une liste de tous les livres,  
 **Afin de** pouvoir rapidement accéder aux informations sur tout les livres dans le système.  
@@ -82,7 +82,7 @@
 
 <br>
 
-### 1.2 Récupérer un livre par ID (GET /:id)
+### 2.2 Récupérer un livre par ID (GET /:id)
 **En tant qu'utilisateur,**  
 **Je veux** consulter des informations détaillées sur un livre spécifique,  
 **Afin de** pouvoir voir son profil complet ou effectuer des actions spécifiques.  
@@ -94,7 +94,7 @@
 
 <br>
 
-### 1.3 Créer un livre (POST /)
+### 2.3 Créer un livre (POST /)
 **En tant qu'administrateur,**  
 **Je veux** créer un nouveau livre,  
 **Afin de** pouvoir l'ajouter au système avec les informations nécessaires.  
@@ -107,7 +107,7 @@
 
 <br>
 
-### 1.4 Mettre à jour un livre (PUT /:id)
+### 2.4 Mettre à jour un livre (PUT /:id)
 **En tant qu'administrateur,**  
 **Je veux** mettre à jour les informations d'un livre,  
 **Afin de** pouvoir modifier ses données si nécessaire.  
@@ -121,7 +121,7 @@
 
 <br>
 
-### 1.5 Supprimer un livre (DELETE /:id)
+### 2.5 Supprimer un livre (DELETE /:id)
 **En tant qu'administrateur,**  
 **Je veux** supprimer un livre du système,  
 **Afin de** pouvoir retirer les livres qui ne sont plus nécessaires.  
@@ -136,9 +136,9 @@
 
 ---
 
-## 1. Vinyl :
+## 3. Vinyl :
 
-### 1.1 Récupérer tous les vinyls (GET /)
+### 3.1 Récupérer tous les vinyls (GET /)
 **En tant qu'utilisateur,**  
 **Je veux** voir une liste de tous les vinyls,  
 **Afin de** pouvoir rapidement accéder aux informations sur tout les vinyls dans le système.  
@@ -150,7 +150,7 @@
 
 <br>
 
-### 1.2 Récupérer un vinyl par ID (GET /:id)
+### 3.2 Récupérer un vinyl par ID (GET /:id)
 **En tant qu'utilisateur,**  
 **Je veux** consulter des informations détaillées sur un vinyl spécifique,  
 **Afin de** pouvoir voir son profil complet ou effectuer des actions spécifiques.  
@@ -162,7 +162,7 @@
 
 <br>
 
-### 1.3 Créer un vinyl (POST /)
+### 3.3 Créer un vinyl (POST /)
 **En tant qu'administrateur,**  
 **Je veux** créer un nouveau vinyl,  
 **Afin de** pouvoir l'ajouter au système avec les informations nécessaires.  
@@ -175,7 +175,7 @@
 
 <br>
 
-### 1.4 Mettre à jour un vinyl (PUT /:id)
+### 3.4 Mettre à jour un vinyl (PUT /:id)
 **En tant qu'administrateur,**  
 **Je veux** mettre à jour les informations d'un vinyl,  
 **Afin de** pouvoir modifier ses données si nécessaire.  
@@ -189,7 +189,7 @@
 
 <br>
 
-### 1.5 Supprimer un vinyl (DELETE /:id)
+### 3.5 Supprimer un vinyl (DELETE /:id)
 **En tant qu'administrateur,**  
 **Je veux** supprimer un vinyl du système,  
 **Afin de** pouvoir retirer les vinyls qui ne sont plus nécessaires.  
@@ -199,6 +199,72 @@
 - Si l'ID du vinyl n'existe pas, le système renvoie une erreur 404.
 - Si la suppression est réussie, le système répond avec un message de confirmation.
 - Le vinyl supprimé n'est plus récupérable dans la base de données.
+
+<br>
+
+## 4. VHS : 
+
+### 4.1 Récupérer toutes les VHS (GET /)  
+**En tant qu'utilisateur,**  
+**Je veux** voir une liste de toutes les VHS,  
+**Afin de** pouvoir rapidement accéder aux informations sur toutes les VHS dans le système.  
+
+#### Critères d'acceptation :  
+- Le système récupère une liste de toutes les VHS depuis la base de données.  
+- La réponse inclut les détails essentiels des VHS (titre et réalisateur).  
+- S'il n'y a pas de VHS, le système renvoie une liste vide.  
+
+---
+
+### 4.2 Récupérer une VHS par ID (GET /:id)  
+**En tant qu'utilisateur,**  
+**Je veux** consulter des informations détaillées sur une VHS spécifique,  
+**Afin de** pouvoir voir son profil complet ou effectuer des actions spécifiques.  
+
+#### Critères d'acceptation :  
+- Le système récupère les détails d'une VHS sur la base de l'ID fourni.  
+- La réponse inclut tous les détails pertinents de la VHS (titre, réalisateur).  
+- Si l'ID de la VHS n'existe pas, le système renvoie une erreur 404 avec un message explicatif.  
+
+---
+
+### 4.3 Créer une VHS (POST /)  
+**En tant qu'administrateur,**  
+**Je veux** créer une nouvelle VHS,  
+**Afin de** pouvoir l'ajouter au système avec les informations nécessaires.  
+
+#### Critères d'acceptation :  
+- Une requête valide contient les informations de la VHS (titre, réalisateur).  
+- Le système crée une nouvelle VHS et la stocke dans la base de données.  
+- Si les données saisies sont invalides (par exemple, champs requis manquants), le système renvoie une erreur 400 avec un retour sur la validation.  
+- Après la création, le système répond avec les détails de la nouvelle VHS créée.  
+
+---
+
+### 4.4 Mettre à jour une VHS (PUT /:id)  
+**En tant qu'administrateur,**  
+**Je veux** mettre à jour les informations d'une VHS,  
+**Afin de** pouvoir modifier ses données si nécessaire.  
+
+#### Critères d'acceptation :  
+- Le système met à jour la VHS sur la base de l'ID fourni et du corps de la requête.  
+- Une requête valide contient uniquement les champs à mettre à jour (titre, réalisateur).  
+- Si l'ID de la VHS n'existe pas, le système renvoie une erreur 404.  
+- Si les données saisies sont invalides, le système renvoie une erreur 400 avec un retour sur la validation.  
+- Les détails mis à jour de la VHS sont reflétés dans la base de données.  
+
+---
+
+### 4.5 Supprimer une VHS (DELETE /:id)  
+**En tant qu'administrateur,**  
+**Je veux** supprimer une VHS du système,  
+**Afin de** pouvoir retirer les VHS qui ne sont plus nécessaires.  
+
+#### Critères d'acceptation :  
+- Le système supprime la VHS associée à l'ID fourni.  
+- Si l'ID de la VHS n'existe pas, le système renvoie une erreur 404.  
+- Si la suppression est réussie, le système répond avec un message de confirmation.  
+- La VHS supprimée n'est plus récupérable dans la base de données.  
 
 <br>
 
