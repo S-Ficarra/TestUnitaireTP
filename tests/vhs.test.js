@@ -4,6 +4,7 @@ const supertest = require('supertest');
 const app = require('../app');
 const sequelize = require('../config/db');
 const Vhs = require('../models/vhsModel')
+const vhsServices = require('../services/vhsServices')
 
 const { expect } = chai;
 const request = supertest(app);
@@ -22,15 +23,15 @@ describe('TDD for VHS', () => {
         expect(newVhs).to.be.instanceOf(Vhs);
     });
 
-    // it('should validate that a new vhs have the required attributes', async () => {
+    it('should validate that a new vhs have the required attributes', async () => {
 
-    //     const newVhs = createVhs('Jurassic Park', 'Steven Spielberg');
+        const newVhs = vhsServices.createVhs('Jurassic Park', 'Steven Spielberg');
 
-    //     expect(newVhs.title).to.be.string;
-    //     expect(newVhs.director).to.be.string;
-    //     expect(newVhs.title).to.equal('Jurassic Park');
-    //     expect(newVhs.director).to.equal('Steven Spielberg');
-    // });
+        expect(newVhs.title).to.be.string;
+        expect(newVhs.director).to.be.string;
+        expect(newVhs.title).to.equal('Jurassic Park');
+        expect(newVhs.director).to.equal('Steven Spielberg');
+    });
 
     // it('should create a new VHS and register it in the DB', async () => {
     //     const res = await request.post('/vhs').send({
