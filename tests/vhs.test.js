@@ -33,15 +33,15 @@ describe('TDD for VHS', () => {
         expect(newVhs.director).to.equal('Steven Spielberg');
     });
 
-    // it('should create a new VHS and register it in the DB', async () => {
-    //     const res = await request.post('/vhs').send({
-    //         title: 'Jurassic Park',
-    //         director: 'Steven Spierlberg',
-    //     });
+    it('should create a new VHS and register it in the DB', async () => {
+        const res = await request.post('/vhs').send({
+            title: 'Jurassic Park',
+            director: 'Steven Spierlberg',
+        });
 
-    //     expect(res.status).to.equal(201);
-    //     expect(res.body).to.have.property('id');
-    //     expect(res.body.title).to.equal('Jurassic Park');
-    //     expect(res.body.director).to.equal('Steven Spierlberg');
-    // });
+        expect(res.status).to.equal(201);
+        expect(res.body).to.have.property('id');
+        expect(res.body.title).to.equal('Jurassic Park');
+        expect(res.body.director).to.equal('Steven Spierlberg');
+    });
 })
