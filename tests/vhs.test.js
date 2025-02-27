@@ -3,8 +3,9 @@ const chaiHttp = require('chai-http');
 const supertest = require('supertest');
 const app = require('../app');
 const sequelize = require('../config/db');
-const Vhs = require('../models/vhsModel')
-const vhsServices = require('../services/vhsServices')
+const Vhs = require('../models/vhsModel');
+const vhsServices = require('../services/vhsServices');
+const vhsController = require('../controllers/vhsController')
 
 const { expect } = chai;
 const request = supertest(app);
@@ -25,7 +26,7 @@ describe('TDD for VHS', () => {
 
     it('should validate that a new vhs have the required attributes', async () => {
 
-        const newVhs = vhsServices.createVhs('Jurassic Park', 'Steven Spielberg');
+        const newVhs = await vhsServices.createVhs('Jurassic Park', 'Steven Spielberg');
 
         expect(newVhs.title).to.be.string;
         expect(newVhs.director).to.be.string;

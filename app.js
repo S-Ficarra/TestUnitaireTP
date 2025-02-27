@@ -6,6 +6,8 @@ const path = require('path');
 const userRoutes = require('./routes/userRoutes');
 const bookRoutes = require('./routes/bookRoutes');
 const vinylRoutes = require('./routes/vinylRoutes');
+const vhsRoutes = require('./routes/vhsRoutes');
+
 
 
 const app = express();
@@ -26,6 +28,7 @@ app.use(morgan('combined', { stream: accessLogStream }));
 app.use('/users', userRoutes);
 app.use('/books', bookRoutes);
 app.use('/vinyls', vinylRoutes);
+app.use('/vhs', vhsRoutes)
 
 
 module.exports = app;
