@@ -21,7 +21,10 @@ exports.updateVhs = async (id, title, director) => {
     vhsToUpdate.title = title;
 
     const vhsUpdated = vhsToUpdate.save();
-
     return vhsUpdated;
+}
 
+exports.deleteVhs = async (id) => {
+    const deleteVhs = await Vhs.destroy({ where: {id : id}})
+    return deleteVhs;
 }
