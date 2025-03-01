@@ -54,7 +54,7 @@ describe('TDD for VHS', () => {
       
         const allVhs = await vhsServices.getAllVhs();
 
-        expect(allVhs).to.be.an('array');
+        expect(allVhs).to.be.an('array');      
       
         const titles = allVhs.map(vhs => vhs.title);
         const directors = allVhs.map(vhs => vhs.director);
@@ -64,6 +64,8 @@ describe('TDD for VHS', () => {
         expect(directors).to.include('Steven Spielberg');        
     })
 
+        //------------------- tests to get a VHS by name  -------------------
+
     it('should return the Vhs searched', async () => {
 
         const vhsSearched = await vhsServices.getVhsByName('Jurassic Park')
@@ -72,9 +74,12 @@ describe('TDD for VHS', () => {
         expect(vhsSearched).to.have.property('director', 'Steven Spielberg');
     })
 
+        //------------------- tests to update a VHS  -------------------
+
+
     it('should update a VHS and return it modified', async () => {
 
-        const vhsUpdated = await vhsServices('Titanic', 'James Cameron');
+        const vhsUpdated = await vhsServices.updateVhs(1, 'Titanic', 'James Cameron');
 
         expect(vhsUpdated).to.have.property('title', 'Titanic');
         expect(vhsUpdated).to.have.property('director', 'James Cameron');
