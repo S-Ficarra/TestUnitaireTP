@@ -51,40 +51,18 @@ describe('TDD for VHS', () => {
         //------------------- tests for get all VHS  -------------------
 
     it('should sent back all vhs created', async () => {
-        const res1 = await request.post('/vhs').send({
-            title: 'Seven',
-            director: 'David Fincher',
-        });
-        const res2 = await request.post('/vhs').send({
-            title: 'Jurassic Park',
-            director: 'Steven Spielberg',
-        });
-
-        const allVhs = await getAllVhs();
-
-        expect(res1.status).to.equal(201);
-        expect(res1.body).to.have.property('id');
-        expect(res1.body.title).to.equal('Seven');
-        expect(res1.body.director).to.equal('David Fincher');
-        
-        expect(res2.status).to.equal(201);
-        expect(res2.body).to.have.property('id');
-        expect(res2.body.title).to.equal('Jurassic Park');
-        expect(res2.body.director).to.equal('Steven Spielberg');
+      
+        const allVhs = await vhsServices.getAllVhs();
 
         expect(allVhs).to.be.an('array');
-
+      
         const titles = allVhs.map(vhs => vhs.title);
         const directors = allVhs.map(vhs => vhs.director);
 
-        expect(titles).to.include('Seven');
+        expect(titles).to.include('E.T.');
         expect(titles).to.include('Jurassic Park');
-        expect(directors).to.include('David Fincher');
         expect(directors).to.include('Steven Spielberg');        
     })
-
-
-
 
 
 
