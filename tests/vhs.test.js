@@ -85,6 +85,21 @@ describe('TDD for VHS', () => {
         expect(vhsUpdated).to.have.property('director', 'James Cameron');
     })
 
+        //------------------- tests to delete a VHS  -------------------
+
+
+    it('should return all VHS without the one deleted', async () => {
+
+        vhsServices.deleteVhs(1);
+        const allVhs = await vhsServices.getAllVhs();
+
+        const titles = allVhs.map(vhs => vhs.title);
+        const directors = allVhs.map(vhs => vhs.director);
+
+        expect(titles).to.not.include('E.T.');
+        expect(directors).to.not.include('Steven Spielberg');        
+    })
+
 
 
 })
