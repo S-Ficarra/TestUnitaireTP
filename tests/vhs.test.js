@@ -68,8 +68,8 @@ describe('TDD for VHS', () => {
 
         const vhsSearched = await vhsServices.getVhsByName('Jurassic Park')
 
-        expect(vhsSearched).to.include('Juassic Park');
-        expect(vhsSearched).to.include('Steven Spielberg')
+        expect(vhsSearched).to.have.property('title', 'Jurassic Park');
+        expect(vhsSearched).to.have.property('director', 'Steven Spielberg');
     })
 
 
