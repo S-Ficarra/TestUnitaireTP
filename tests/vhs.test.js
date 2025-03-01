@@ -72,6 +72,14 @@ describe('TDD for VHS', () => {
         expect(vhsSearched).to.have.property('director', 'Steven Spielberg');
     })
 
+    it('should update a VHS and return it modified', async () => {
+
+        const vhsUpdated = await vhsServices('Titanic', 'James Cameron');
+
+        expect(vhsUpdated).to.have.property('title', 'Titanic');
+        expect(vhsUpdated).to.have.property('director', 'James Cameron');
+    })
+
 
 
 })
