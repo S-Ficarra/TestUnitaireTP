@@ -64,6 +64,14 @@ describe('TDD for VHS', () => {
         expect(directors).to.include('Steven Spielberg');        
     })
 
+    it('should return the Vhs searched', async () => {
+
+        const vhsSearched = await vhsServices.getVhsByName('Jurassic Park')
+
+        expect(vhsSearched).to.include('Juassic Park');
+        expect(vhsSearched).to.include('Steven Spielberg')
+    })
+
 
 
 })
