@@ -56,3 +56,17 @@ exports.updateVhs = async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 }
+
+
+exports.deleteVhs = async (req, res) => {
+    try {
+
+        const id = req.params.id;
+        await vhsService.deleteVhs(id)
+        res.status(200).json({message: `VHS ${id} deleted`})
+        
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+
+    }
+}

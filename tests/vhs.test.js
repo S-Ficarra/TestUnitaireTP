@@ -157,20 +157,21 @@ describe('TDD for VHS', () => {
 
     it('should return all VHS without the one deleted', async () => {
 
-        const res = (await request.delete('/vhs')).send({
-            id: 3
-        })
+        const res = (await request.delete('/vhs/3'))
 
         expect(res.status).to.equal(200);
-        expect(res.body).to.have.property('message', 'VHS supprimé avec succès');
+        expect(res.body).to.have.property('message', 'VHS 3 deleted');
 
         const res2 = await request.get('/vhs');
+
+        console.log(res2.body);
+        
 
         expect(res2.status).to.equal(200);
         expect(res2.body).to.be.an('array');
         expect(res2.body.length).to.equal(1);
-        expect(res2.body.title).to.equal('E.T.');
-        expect(res2.body.director).to.equal('Steven Spielberg');
+        expect(res2.body[0].title).to.equal('E.T.');
+        expect(res2.body[0].director).to.equal('Steven Spielberg');
     })
 
 
