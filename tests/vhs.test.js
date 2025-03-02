@@ -136,12 +136,12 @@ describe('TDD for VHS', () => {
 
     it('should return the VHS updated', async () => {
         
-        const res = await request.post('/vhs/3').send({
+        const res = await request.put('/vhs/3').send({
             title: 'Scarface',
             director: 'Brian De Palma',
         });       
-
-        expect(res.status).to.equal(204);
+   
+        expect(res.status).to.equal(200);
         expect(res.body).to.have.property('id');
         expect(res.body.title).to.equal('Scarface');
         expect(res.body.director).to.equal('Brian De Palma');

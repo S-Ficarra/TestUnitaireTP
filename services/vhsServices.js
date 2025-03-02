@@ -21,7 +21,7 @@ exports.updateVhs = async (id, title, director) => {
     vhsToUpdate.director = director;
     vhsToUpdate.title = title;
 
-    const vhsUpdated = vhsToUpdate.save();
+    const vhsUpdated = await vhsToUpdate.save();    
     return vhsUpdated;
 }
 
