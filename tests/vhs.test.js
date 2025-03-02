@@ -102,7 +102,7 @@ describe('TDD for VHS', () => {
 
         //------------------- ENDPOINTS TESTS -------------------
 
-        //------------------- getAll -------------------
+        //------------------- getAll VHS -------------------
 
     it('should return allVhs with a 200 status code', async () => {
 
@@ -111,6 +111,25 @@ describe('TDD for VHS', () => {
         expect(res.body).to.be.an('array');
         expect(res.body.length).to.equal(1);
     })
+
+        //------------------- get VHS by name -------------------
+
+    it('should return the vhs requested by name', async () => {
+
+        await request.post('/vhs').send({
+            title: 'Seven',
+            director: 'David Fincher',
+        });       
+
+        const res = await request.get('/vhs/seven')
+
+        expect(res.status).to.equal(201);
+        expect(res.body).to.have.property('id');
+        expect(res.body.title).to.equal('Seven');
+        expect(res.body.director).to.equal('David Fincher');
+
+    })
+
 
 
 
