@@ -131,7 +131,7 @@ describe('TDD for VHS', () => {
     })
 
 
-        //------------------- update VHS -------------------
+        //------------------- Update VHS -------------------
 
 
     it('should return the VHS updated', async () => {
@@ -140,12 +140,37 @@ describe('TDD for VHS', () => {
             title: 'Scarface',
             director: 'Brian De Palma',
         });       
+
+        console.log(await vhsServices.getAllVhs());
+        
    
         expect(res.status).to.equal(200);
         expect(res.body).to.have.property('id');
         expect(res.body.title).to.equal('Scarface');
         expect(res.body.director).to.equal('Brian De Palma');
 
+    })
+
+        //------------------- Delete VHS -------------------
+
+
+
+    it('should return all VHS without the one deleted', async () => {
+
+        const res = (await request.delete('/vhs')).send({
+            id: 3
+        })
+
+        expect(res.status).to.equal(200);
+        expect(res.body).to.have.property('message', 'VHS supprimé avec succès');
+
+        const res2 = await request.get('/vhs');
+
+        expect(res2.status).to.equal(200);
+        expect(res2.body).to.be.an('array');
+        expect(res2.body.length).to.equal(1);
+        expect(res2.body.title).to.equal('E.T.');
+        expect(res2.body.director).to.equal('Steven Spielberg');
     })
 
 
