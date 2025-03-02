@@ -6,7 +6,8 @@ exports.getAllVhs = async () => {
 }
 
 exports.getVhsByName = async (title) => {
-    return await Vhs.findOne({where: {title : title}});
+    const capitalizedTitle = title.charAt(0).toUpperCase() + title.slice(1);
+    return await Vhs.findOne({where: {title : capitalizedTitle}});
 }
 
 exports.createVhs = async (title, director) => {

@@ -10,6 +10,21 @@ exports.getAllVhs = async (req, res) => {
     }
 }
 
+exports.getVhsByName = async (req, res) => {
+
+    try {
+        const vhsName = req.params.name;
+        const vhs = await vhsService.getVhsByName(vhsName);
+
+        if (!vhs) {
+            return res.status(404).json({ message: 'VHS not found' });
+        }
+        res.status(200).json(vhs); 
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+}
+
 
 exports.createVhs = async (req, res) => {
     try {

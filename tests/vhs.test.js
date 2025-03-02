@@ -123,7 +123,7 @@ describe('TDD for VHS', () => {
 
         const res = await request.get('/vhs/seven')
 
-        expect(res.status).to.equal(201);
+        expect(res.status).to.equal(200);
         expect(res.body).to.have.property('id');
         expect(res.body.title).to.equal('Seven');
         expect(res.body.director).to.equal('David Fincher');
